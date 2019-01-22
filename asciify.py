@@ -82,5 +82,10 @@ method main():
 '''
 if __name__ == '__main__':
     import sys
-    path = sys.argv[1]
+    import urllib.request
+    if sys.argv[1].startswith('http://') or sys.argv[1].startswith('https://'):
+        urllib.request.urlretrieve(sys.argv[1], "asciify.jpg")
+        path = "asciify.jpg"
+    else:
+        path = sys.argv[1]
     runner(path)
